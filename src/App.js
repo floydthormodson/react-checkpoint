@@ -1,6 +1,7 @@
 import './App.css';
 import {Component} from 'react';
 import DisplaySimple from './comp/DisplaySimple.js'
+{/*import ViewMessage from '.comp/ViewMessage.js'*/}
 const url ='http://localhost:3001/emails';
 
 
@@ -13,6 +14,8 @@ class App extends Component{
     };
     
   }
+
+  
 
 
   async componentDidMount() {
@@ -30,6 +33,7 @@ class App extends Component{
         <h1 className ='App-header'>Email App</h1>
         <ul>
             <DisplaySimple className="emails" emails={this.state.emails}/>
+            {/*<ViewMessage />*/}
         </ul>
       </body>
       
