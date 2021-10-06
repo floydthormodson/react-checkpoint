@@ -1,5 +1,6 @@
 import './App.css';
 import {Component} from 'react';
+import DisplaySimple from './comp/DisplaySimple.js'
 const url ='http://localhost:3001/emails';
 
 
@@ -9,7 +10,6 @@ class App extends Component{
     this.state={
       emails: [],
       sent: false
-
     };
     
   }
@@ -18,19 +18,19 @@ class App extends Component{
   async componentDidMount() {
     let res = await fetch(url);
     let json = await res.json();
-    let emails = json.emails;
-    this.setState({ emails: emails})
-    console.log()
+    this.setState({emails: json})
+    console.log(this.state.emails)
   }
 
   render(){
+    
 
     return(
       <body className ='App'>
         <h1 className ='App-header'>Email App</h1>
-        <div className='emails'>
-            {this.state.emails}
-        </div>
+        <ul>
+            <DisplaySimple className="emails" emails={this.state.emails}/>
+        </ul>
       </body>
       
     )

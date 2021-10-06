@@ -17,8 +17,12 @@
 }
 
 .emails{
-  background-color: black;
+  height: 30vh;
+  width: 80vw;
   color:antiquewhite;
+  background-color: black;
+  justify-content:center;
+  align-content:center;
 
 }
 
