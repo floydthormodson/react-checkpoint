@@ -1,26 +1,41 @@
-import logo from './logo.svg';
 import './App.css';
-import app.js from 'USAF-sdi-react-checkpoint/app.js'
+import {Component} from 'react';
+const url ='http://localhost:3001/emails';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+class App extends Component{
+  constructor(){
+    super();
+    this.state={
+      emails: [],
+      sent: false
+
+    };
+    
+  }
+
+
+  async componentDidMount() {
+    let res = await fetch(url);
+    let json = await res.json();
+    let emails = json.emails;
+    this.setState({ emails: emails})
+    console.log()
+  }
+
+  render(){
+
+    return(
+      <body className ='App'>
+        <h1 className ='App-header'>Email App</h1>
+        <div className='emails'>
+            {this.state.emails}
+        </div>
+      </body>
+      
+    )
+  }
+
 }
 
 
