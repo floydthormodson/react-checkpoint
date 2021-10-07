@@ -15,9 +15,6 @@ class App extends Component{
     
   }
 
-  
-
-
   async componentDidMount() {
     let res = await fetch(url);
     let json = await res.json();
@@ -27,14 +24,13 @@ class App extends Component{
 
   render(){
     
-
     return(
       <body className ='App'>
         <h1 className ='App-header'>Email App</h1>
-        <ul>
-            <DisplaySimple className="emails" emails={this.state.emails}/>
+        <div className="emails">
+            <DisplaySimple className="button-column" emails={this.state.emails}/>
             {/*<ViewMessage />*/}
-        </ul>
+        </div>
       </body>
       
     )
